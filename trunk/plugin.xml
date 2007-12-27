@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.importWizards">
+      <category
+            name="Sample File Import"
+            id="poeditor.importWizards.sampleCategory">
+      </category>
+      <wizard
+            name="Import File"
+            icon="icons/sample.gif"
+            category="poeditor.importWizards.sampleCategory"
+            class="poeditor.importWizards.ImportWizard"
+            id="poeditor.importWizards.ImportWizard">
+         <description>
+            Import a file from the local file system into the workspace.
+         </description>
+      </wizard>
+   </extension>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            name="Sample Multi-page Editor"
+            extensions="mpe"
+            icon="icons/sample.gif"
+            contributorClass="poeditor.editors.MultiPageEditorContributor"
+            class="poeditor.editors.MultiPageEditor"
+            id="poeditor.editors.MultiPageEditor">
+      </editor>
+   </extension>
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <category
+            name="Sample Wizards"
+            id="poeditor">
+      </category>
+      <wizard
+            name="Multi-page Editor file"
+            icon="icons/sample.gif"
+            category="poeditor"
+            class="poeditor.wizards.SampleNewWizard"
+            id="poeditor.wizards.SampleNewWizard">
+      </wizard>
+   </extension>
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            objectClass="org.eclipse.core.resources.IFile"
+            id="poeditor.contribution1">
+         <menu
+               label="New Submenu"
+               path="additions"
+               id="poeditor.menu1">
+            <separator
+                  name="group1">
+            </separator>
+         </menu>
+         <action
+               label="New Action"
+               class="poeditor.popup.actions.NewAction"
+               menubarPath="poeditor.menu1/group1"
+               enablesFor="1"
+               id="poeditor.newAction">
+         </action>
+      </objectContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            name="Sample Preferences"
+            class="poeditor.preferences.SamplePreferencePage"
+            id="poeditor.preferences.SamplePreferencePage">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="poeditor.preferences.PreferenceInitializer">
+      </initializer>
+   </extension>
+   <extension
+         point="org.eclipse.ui.propertyPages">
+      <page
+            objectClass="org.eclipse.core.resources.IFile"
+            name="Sample Page"
+            nameFilter="*.*"
+            class="poeditor.properties.SamplePropertyPage"
+            id="poeditor.properties.samplePropertyPage">
+      </page>
+   </extension>
+
+</plugin>
